@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 21:09:47 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/07 17:07:21 by fgrea            ###   ########.fr       */
+/*   Updated: 2016/12/09 01:05:40 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,12 @@ typedef struct		s_list
 	struct s_list	*previous;
 }					t_list;
 
-char		**fillit_erase_tet(t_list *ntl, char **map);
 char		**fillit_algorythm(t_list *ntl, size_t x);
 void		fillit_lstpast(t_list *ntl);
 t_list		*fillit_reduce_tet(t_list *ntl);
 char		**fillit_createtettab(char *tmp, char c);
-char		**fillit_size_map(t_list *ntl, size_t x, size_t *size);
-char		**fillit_put_tet(t_list *ntl, char **map);
+char		**fillit_size_map(t_list *ntl, size_t x);
+size_t		fillit_put_tet(t_list *ntl, char **map);
 int			fillit_is_valid(char *tet);
 t_list		*fillit_newtetslist(char *tmp, char c);
 int			fillit_open_file(int argc, char **argv);

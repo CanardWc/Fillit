@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 04:59:45 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/07 05:52:01 by fgrea            ###   ########.fr       */
+/*   Updated: 2016/12/09 06:46:33 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	fillit_lstpast(t_list *ntl)
 	tmp = ntl;
 	while (ntl->next != NULL)
 	{
-		ntl = ntl->next;
 		ntl->previous = tmp;
+		ntl = ntl->next;
 		tmp = ntl;
 	}
 }

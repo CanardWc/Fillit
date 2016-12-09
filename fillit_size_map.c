@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 04:58:55 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/07 15:33:24 by fgrea            ###   ########.fr       */
+/*   Updated: 2016/12/08 23:15:59 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	fillit_count_tets(t_list *ntl)
 	return (ret);
 }
 
-char	**fillit_size_map(t_list *ntl, size_t x, size_t *size)
+char	**fillit_size_map(t_list *ntl, size_t x)
 {
 	char	**map;
 	size_t	i;
@@ -39,7 +39,6 @@ char	**fillit_size_map(t_list *ntl, size_t x, size_t *size)
 	i = 0;
 	j = 0;
 	ret = fillit_count_tets(ntl);
-	*size = ret + x;
 	if ((map = (char **)malloc(sizeof(char *) * (ret + x + 1))) == NULL)
 		return (NULL);
 	while (j < (ret + x))

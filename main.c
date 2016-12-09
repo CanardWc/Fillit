@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 13:42:16 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/07 17:02:25 by fgrea            ###   ########.fr       */
+/*   Updated: 2016/12/09 05:00:15 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		main(int argc, char **argv)
 	char	**map;
 	size_t	j;
 
+	map = NULL;
 	j = 0;
 	argc = 2;								//a virer pour mettre la merde style cp
 	fd = open(argv[1], O_RDONLY);
@@ -30,5 +31,6 @@ int		main(int argc, char **argv)
 		ft_putendl(map[j]);
 		j++;
 	}
+	j = 0;
 	return (0);
 }

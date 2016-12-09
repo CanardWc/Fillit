@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 08:27:00 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/06 20:53:05 by fgrea            ###   ########.fr       */
+/*   Updated: 2016/12/09 04:59:40 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		fcw(t_list *ntl)
 	j = 0;
 	while (i < 4)
 	{
-		if (ntl->tab[j][i] != '.' && ntl->tab[j][i] != '\0')
+		while (ntl->tab[j][i] != '.' && ntl->tab[j][i] != '\0')
 		{
 			ntl->wdth++;
 			i++;
@@ -127,9 +127,13 @@ t_list			*fillit_reduce_tet(t_list *ntl)
 	char	**tet;
 
 	i = fbct(ntl);
+	ft_putnbrendl(i);
 	j = fblt(ntl);
+	ft_putnbrendl(j);
 	fch(ntl);
+	ft_putnbrendl(ntl->hght);
 	fcw(ntl);
+	ft_putnbrendl(ntl->wdth);
 	if ((tet = (char **)malloc(sizeof(char *) * (ntl->hght + 1))) == NULL)
 		return (NULL);
 	while (ntl->tab[j] && j < (ntl->hght + fblt(ntl)))

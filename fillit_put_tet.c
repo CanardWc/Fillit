@@ -6,13 +6,13 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 17:49:38 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/07 17:14:18 by fgrea            ###   ########.fr       */
+/*   Updated: 2016/12/09 01:04:37 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char		**fillit_erase_tet(t_list *ntl, char **map)
+static char		**fillit_erase_tet(t_list *ntl, char **map)
 {
 	size_t	i;
 	size_t	j;
@@ -38,7 +38,7 @@ char		**fillit_erase_tet(t_list *ntl, char **map)
 	return (map);
 }
 
-char		**fillit_put_tet(t_list *ntl, char **map)
+size_t		fillit_put_tet(t_list *ntl, char **map)
 {
 	size_t	i;
 	size_t	j;
@@ -47,7 +47,13 @@ char		**fillit_put_tet(t_list *ntl, char **map)
 	j = ntl->j;
 	ntl->i = 0;
 	ntl->j = 0;
-	//map = fillit_erase_tet(ntl, map);
+	map = fillit_erase_tet(ntl, map);
+	/*while (map[j])
+	{
+		ft_putendl(map[j]);
+		j++;
+	}
+	j = 0;*/
 	while (map[j])
 	{
 		while (map[j] && \
@@ -63,15 +69,15 @@ char		**fillit_put_tet(t_list *ntl, char **map)
 			{
 				ntl->j++;
 				j++;
-				//ft_putendl(map[j]);
 				i = i - ntl->i;
 				ntl->i = 0;
 			}
 			if (ntl->j == ntl->hght)
 			{
+		ft_putendl("j");
 				ntl->j = j - ntl->j;
 				ntl->i = i - ntl->i;
-				return (map);
+				return (0);
 			}
 		}
 		map = fillit_erase_tet(ntl, map);
@@ -85,5 +91,5 @@ char		**fillit_put_tet(t_list *ntl, char **map)
 			j++;
 		}
 	}
-	return (NULL);
+	return (1);
 }
