@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 21:09:47 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/09 01:05:40 by fgrea            ###   ########.fr       */
+/*   Updated: 2016/12/10 21:04:54 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct		s_list
 }					t_list;
 
 char		**fillit_algorythm(t_list *ntl, size_t x);
-void		fillit_lstpast(t_list *ntl);
+t_list		*fillit_lstpast(t_list *ntl);
 t_list		*fillit_reduce_tet(t_list *ntl);
 char		**fillit_createtettab(char *tmp, char c);
 char		**fillit_size_map(t_list *ntl, size_t x);

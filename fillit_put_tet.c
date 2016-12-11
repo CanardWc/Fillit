@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 17:49:38 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/09 01:04:37 by fgrea            ###   ########.fr       */
+/*   Updated: 2016/12/11 00:41:35 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,6 @@ size_t		fillit_put_tet(t_list *ntl, char **map)
 	ntl->i = 0;
 	ntl->j = 0;
 	map = fillit_erase_tet(ntl, map);
-	/*while (map[j])
-	{
-		ft_putendl(map[j]);
-		j++;
-	}
-	j = 0;*/
 	while (map[j])
 	{
 		while (map[j] && \
@@ -74,7 +68,6 @@ size_t		fillit_put_tet(t_list *ntl, char **map)
 			}
 			if (ntl->j == ntl->hght)
 			{
-		ft_putendl("j");
 				ntl->j = j - ntl->j;
 				ntl->i = i - ntl->i;
 				return (0);
