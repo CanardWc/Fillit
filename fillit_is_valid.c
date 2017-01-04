@@ -17,16 +17,14 @@ static int	fillit_is_square(char *tmp)
 	int i;
 
 	i = 0;
-	if (!tmp)
-		return (1);
-	while (i < 20)
+	while (i < 20 && tmp[i])
 		i++;
 	if (i != 20 && (tmp[i] != '\n' || tmp[i] != '\0'))
 		return (1);
 	i -= 1;
 	while (i >= 4)
 	{
-		if (tmp[i] != '\n' || tmp[i] != '\0')
+		if (tmp[i] != '\n' && tmp[i] != '\0')
 			return (1);
 		i = i - 5;
 	}
@@ -42,8 +40,8 @@ static int	fillit_is_normed(char *tmp)
 	j = 0;
 	if (fillit_is_square(tmp) == 0)
 	{
-		while (tmp[j] != '\0' && (tmp[j] == '.' || tmp[j] == '#' ||
-					tmp[j] == '\n'))
+		while (j <= 20 && tmp[j] != '\0' && (tmp[j] == '.' || \
+				tmp[j] == '#' || tmp[j] == '\n'))
 		{
 			if (tmp[j] == '#')
 				i++;
@@ -62,13 +60,13 @@ static int	fillit_is_after(char *tmp)
 
 	i = 0;
 	tetri = 0;
-	while (tmp[i])
+	while (tmp[i] && i <= 19)
 	{
 		if (tmp[i] == '#')
 		{
 			if (tmp[i + 1] == '#')
 				tetri++;
-			if (tmp[i + 5] == '#')
+			if (tmp[i + 5] == '#' && (i + 5) <= 19)
 				tetri++;
 		}
 		i++;
@@ -83,13 +81,13 @@ static int	fillit_is_before(char *tmp)
 
 	j = 0;
 	tetro = 0;
-	while (tmp[j])
+	while (tmp[j] && j <= 19)
 	{
 		if (tmp[j] == '#')
 		{
 			if (tmp[j - 1] == '#')
 				tetro++;
-			if (tmp[j - 5] == '#')
+			if (tmp[j - 5] == '#' && (j - 5) >= 0)
 				tetro++;
 		}
 		j++;
@@ -107,5 +105,6 @@ int			fillit_is_valid(char *tmp)
 		if (tetra == 6 || tetra == 8)
 			return (0);
 	}
-	return (1);
+	ft_putendl("error");
+	exit (1);
 }

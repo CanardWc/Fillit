@@ -16,8 +16,9 @@ static t_list	*fillit_lstnew(char **tab, char *tmp)
 {
 	t_list	*ntl;
 
-	if (!*tmp || fillit_is_valid(tmp) == 0)
+	if (!tmp)
 		return (NULL);
+	fillit_is_valid(tmp);
 	if ((ntl = (t_list *)malloc(sizeof(t_list))) == NULL)
 		return (NULL);
 	ntl->tab = tab;
