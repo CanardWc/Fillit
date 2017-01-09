@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-static char		**fillit_erase_tet(t_list *ntl, char **map)
+char		**fillit_erase_tet(t_list *ntl, char **map)
 {
 	size_t	i;
 	size_t	j;
@@ -43,6 +43,14 @@ size_t		fillit_put_tet(t_list *ntl, char **map)
 	size_t	i;
 	size_t	j;
 
+	/*j = 0;
+	ft_putendl("map");
+	while (map[j])
+	{
+		ft_putendl(map[j]);
+		j++;
+	}
+*/
 	i = ntl->i;
 	j = ntl->j;
 	ntl->i = 0;

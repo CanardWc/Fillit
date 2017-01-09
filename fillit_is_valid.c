@@ -19,7 +19,9 @@ static int	fillit_is_square(char *tmp)
 	i = 0;
 	while (i < 20 && tmp[i])
 		i++;
-	if (i != 20 && (tmp[i] != '\n' || tmp[i] != '\0'))
+	if (!tmp[i + 5] && tmp[i] == '\n')
+		return (1);
+	if (i != 20 || (tmp[i] != '\n' && tmp[i] != '\0'))
 		return (1);
 	i -= 1;
 	while (i >= 4)
