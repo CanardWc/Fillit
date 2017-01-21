@@ -6,16 +6,16 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 04:59:45 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/10 21:30:20 by fgrea            ###   ########.fr       */
+/*   Updated: 2017/01/21 02:25:06 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_list	*fillit_lstpast(t_list *ntl)
+t_tet	*fillit_lstpast(t_tet *ntl)
 {
-	t_list	*tmp;
-	t_list	*tmp2;
+	t_tet	*tmp;
+	t_tet	*tmp2;
 
 	tmp = NULL;
 	tmp2 = ntl;

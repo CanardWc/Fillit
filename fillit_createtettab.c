@@ -6,24 +6,18 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 15:17:18 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/09 01:14:36 by fgrea            ###   ########.fr       */
+/*   Updated: 2017/01/21 03:44:11 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**fillit_createtettab(char *tmp, char c)
+static char		**fctt_next(char *tmp, char c, int i, int j)
 {
-	int 	i;
-	int		j;
-	int 	itab;
+	int		itab;
 	char	**tab;
 
-	i = 0;
-	j = 0;
 	itab = 0;
-	if (!tmp[i])
-		return (NULL);
 	if ((tab = (char **)malloc(sizeof(char *) * (5))) == NULL)
 		return (NULL);
 	tab[j] = ft_strnew(5);
@@ -39,11 +33,20 @@ char	**fillit_createtettab(char *tmp, char c)
 		{
 			itab = 0;
 			j++;
-			if (i == 20)
-				tab[j] = 0;
-			else
-				tab[j] = ft_strnew(5);
+			tab[j] = (i == 20) ? 0 : ft_strnew(5);
 		}
 	}
 	return (tab);
+}
+
+char			**fillit_createtettab(char *tmp, char c)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (!tmp[i])
+		return (NULL);
+	return (fctt_next(tmp, c, i, j));
 }

@@ -6,13 +6,13 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/04 08:27:00 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/10 21:06:54 by fgrea            ###   ########.fr       */
+/*   Updated: 2017/01/21 03:21:48 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void		fcw(t_list *ntl)
+static void		fcw(t_tet *ntl)
 {
 	size_t	i;
 	size_t	j;
@@ -36,7 +36,7 @@ static void		fcw(t_list *ntl)
 	}
 }
 
-static void		fch(t_list *ntl)
+static void		fch(t_tet *ntl)
 {
 	size_t	i;
 	size_t	j;
@@ -63,7 +63,7 @@ static void		fch(t_list *ntl)
 	}
 }
 
-static size_t	fblt(t_list *ntl)
+static size_t	fblt(t_tet *ntl)
 {
 	size_t	i;
 	size_t	j;
@@ -91,7 +91,7 @@ static size_t	fblt(t_list *ntl)
 	return (begin_line);
 }
 
-static size_t	fbct(t_list *ntl)
+static size_t	fbct(t_tet *ntl)
 {
 	size_t	newbeg;
 	size_t	beg;
@@ -120,7 +120,7 @@ static size_t	fbct(t_list *ntl)
 	return (beg);
 }
 
-t_list			*fillit_reduce_tet(t_list *ntl)
+t_tet			*fillit_reduce_tet(t_tet *ntl)
 {
 	size_t	i;
 	size_t	j;

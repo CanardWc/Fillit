@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 13:42:16 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/10 22:28:06 by fgrea            ###   ########.fr       */
+/*   Updated: 2017/01/21 03:23:11 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(int argc, char **argv)
 {
 	int		fd;
 	size_t	x;
-	t_list	*ntl;
+	t_tet	*ntl;
 	char	**map;
 	size_t	j;
 

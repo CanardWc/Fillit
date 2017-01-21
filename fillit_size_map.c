@@ -6,13 +6,13 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 04:58:55 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/08 23:15:59 by fgrea            ###   ########.fr       */
+/*   Updated: 2017/01/21 04:11:50 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-size_t	fillit_count_tets(t_list *ntl)
+size_t	fillit_count_tets(t_tet *ntl)
 {
 	size_t	ret;
 	size_t	i;
@@ -29,7 +29,7 @@ size_t	fillit_count_tets(t_list *ntl)
 	return (ret);
 }
 
-char	**fillit_size_map(t_list *ntl, size_t x)
+char	**fillit_size_map(t_tet *ntl, size_t x)
 {
 	char	**map;
 	size_t	i;

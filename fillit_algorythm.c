@@ -6,19 +6,19 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 08:39:46 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/11 00:41:13 by fgrea            ###   ########.fr       */
+/*   Updated: 2017/01/21 04:31:44 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static size_t		fillit_put_all(t_list *ntl, char **map)
+static size_t	fillit_put_all(t_tet *ntl, t_map *p)
 {
 	while (ntl)
 	{
 		if (ntl->swap == 1)
 		{
-			if (fillit_put_tet(ntl, map) == 1)
+			if (fillit_put_tet(ntl, p) == 1)
 			{
 				ntl->swap = 2;
 				return (1);
@@ -36,7 +36,7 @@ static size_t		fillit_put_all(t_list *ntl, char **map)
 	return (0);
 }
 
-static size_t	fillit_increment(t_list *ntl, char **map)
+static size_t	fillit_increment(t_tet *ntl, char **map)
 {
 	while (ntl->swap != 2)
 		ntl = ntl->next;
@@ -61,42 +61,45 @@ static size_t	fillit_increment(t_list *ntl, char **map)
 	return (0);
 }
 
-static t_list		*fillit_erase_increments(t_list *ntl)
+static t_tet	*fillit_erase_increments(t_tet *ntl)
 {
 	while (ntl != NULL)
 	{
 		ntl->i = 0;
 		ntl->j = 0;
 		ntl->swap = 0;
-
 		ntl = ntl->next;
 	}
 	return (ntl);
 }
 
-static char			**fillit_backtrack(t_list *ntl, char **map)
+static char		**fillit_backtrack(t_tet *ntl, t_map *p)
 {
-	while (fillit_put_all(ntl, map) == 1)
+	while (fillit_put_all(ntl, p) == 1)
 	{
-		if (fillit_increment(ntl, map) == 1)
+		if (fillit_increment(ntl, p->map) == 1)
 		{
 			ntl = fillit_erase_increments(ntl);
 			return (NULL);
 		}
 	}
-	return (map);
+	return (p->map);
 }
 
-char				**fillit_algorythm(t_list *ntl, size_t x)
+char			**fillit_algorythm(t_tet *ntl, size_t x)
 {
-	char	**map;
+	t_map	*p;
 
+	if ((p = (t_map *)malloc(sizeof(t_map))) == NULL)
+		return (NULL);
+	p->i = 0;
+	p->j = 0;
 	ntl->swap = 1;
-	map = fillit_size_map(ntl, x);
-	while ((map = fillit_backtrack(ntl, map)) == NULL)
+	p->map = fillit_size_map(ntl, x);
+	while ((p->map = fillit_backtrack(ntl, p)) == NULL)
 	{
 		ntl->swap = 1;
-		map = fillit_size_map(ntl, ++x);
+		p->map = fillit_size_map(ntl, ++x);
 	}
-	return (map);
+	return (p->map);
 }

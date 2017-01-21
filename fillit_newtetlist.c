@@ -6,20 +6,20 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 14:57:30 by fgrea             #+#    #+#             */
-/*   Updated: 2016/12/09 04:25:40 by fgrea            ###   ########.fr       */
+/*   Updated: 2017/01/21 03:53:16 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static t_list	*fillit_lstnew(char **tab, char *tmp)
+static t_tet	*fillit_lstnew(char **tab, char *tmp)
 {
-	t_list	*ntl;
+	t_tet	*ntl;
 
 	if (!tmp)
 		return (NULL);
 	fillit_is_valid(tmp);
-	if ((ntl = (t_list *)malloc(sizeof(t_list))) == NULL)
+	if ((ntl = (t_tet *)malloc(sizeof(t_tet))) == NULL)
 		return (NULL);
 	ntl->tab = tab;
 	ntl->i = 0;
@@ -32,23 +32,11 @@ static t_list	*fillit_lstnew(char **tab, char *tmp)
 	return (ntl);
 }
 
-t_list			*fillit_newtetslist(char *tmp, char c)
+static t_tet	*fntl(t_tet *ntl, char *tmp, char c, int i)
 {
-	t_list	*ntl;
-	t_list	*save;
-	int		i;
-	int		g;
+	int	g;
 
-	i = 0;
-	g = 20;
-	ntl = fillit_lstnew(fillit_createtettab(tmp, c), tmp);
-	ntl = fillit_reduce_tet(ntl);
-	save = ntl;
-	while (i < g)
-	{
-		tmp++;
-		i++;
-	}
+	g = i;
 	while (*tmp)
 	{
 		tmp++;
@@ -62,14 +50,32 @@ t_list			*fillit_newtetslist(char *tmp, char c)
 			ntl = ntl->next;
 			g = g + 20;
 		}
-		if (*tmp)
+		while (i < g)
 		{
-			while (i < g)
-			{
-				tmp++;
-				i++;
-			}
+			tmp++;
+			i++;
 		}
 	}
+	return (ntl);
+}
+
+t_tet			*fillit_newtetslist(char *tmp, char c)
+{
+	t_tet	*ntl;
+	t_tet	*save;
+	int		i;
+	int		g;
+
+	i = 0;
+	g = 20;
+	ntl = fillit_lstnew(fillit_createtettab(tmp, c), tmp);
+	ntl = fillit_reduce_tet(ntl);
+	save = ntl;
+	while (i < g)
+	{
+		tmp++;
+		i++;
+	}
+	ntl = fntl(ntl, tmp, c, i);
 	return (save);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fillit_is_valid.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nterol <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 16:56:10 by nterol            #+#    #+#             */
-/*   Updated: 2016/12/06 20:51:53 by fgrea            ###   ########.fr       */
+/*   Created: 2017/01/21 03:15:43 by fgrea             #+#    #+#             */
+/*   Updated: 2017/01/21 03:19:41 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	fillit_is_square(char *tmp)
+static int		fillit_is_square(char *tmp)
 {
 	int i;
 
@@ -33,7 +33,7 @@ static int	fillit_is_square(char *tmp)
 	return (0);
 }
 
-static int	fillit_is_normed(char *tmp)
+static int		fillit_is_normed(char *tmp)
 {
 	int i;
 	int j;
@@ -55,7 +55,7 @@ static int	fillit_is_normed(char *tmp)
 	return (1);
 }
 
-static int	fillit_is_after(char *tmp)
+static int		fillit_is_after(char *tmp)
 {
 	int i;
 	int tetri;
@@ -76,7 +76,7 @@ static int	fillit_is_after(char *tmp)
 	return (tetri);
 }
 
-static int	fillit_is_before(char *tmp)
+static int		fillit_is_before(char *tmp)
 {
 	int j;
 	int tetro;
@@ -97,7 +97,7 @@ static int	fillit_is_before(char *tmp)
 	return (tetro);
 }
 
-int			fillit_is_valid(char *tmp)
+int				fillit_is_valid(char *tmp)
 {
 	int tetra;
 
