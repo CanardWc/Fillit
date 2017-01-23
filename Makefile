@@ -6,7 +6,7 @@
 #    By: fgrea <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/23 22:44:38 by fgrea             #+#    #+#              #
-#    Updated: 2016/12/07 18:08:14 by fgrea            ###   ########.fr        #
+#    Updated: 2017/01/23 16:44:19 by fgrea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fillit
 FLAGS = -Wall -Werror -Wextra
 
 SRC = main.c fillit_is_valid.c fillit_size_map.c fillit_createtettab.c \
-	  fillit_newtetlist.c fillit_open_file.c fillit_read_file.c \
+	  fillit_newtetlist.c fillit_read_file.c \
 	  fillit_put_tet.c ft_putnbrendl.c fillit_reduce_tet.c fillit_lstpast.c \
 	  fillit_algorythm.c
 

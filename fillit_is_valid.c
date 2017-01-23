@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit_is_valid.c                                  :+:      :+:    :+:   */
+/*   fillit_is_valids.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/21 03:15:43 by fgrea             #+#    #+#             */
-/*   Updated: 2017/01/21 03:19:41 by fgrea            ###   ########.fr       */
+/*   Created: 2017/01/23 16:49:15 by fgrea             #+#    #+#             */
+/*   Updated: 2017/01/23 16:50:35 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int		fillit_is_normed(char *tmp)
 	if (fillit_is_square(tmp) == 0)
 	{
 		while (j <= 20 && tmp[j] != '\0' && (tmp[j] == '.' || \
-				tmp[j] == '#' || tmp[j] == '\n'))
+					tmp[j] == '#' || tmp[j] == '\n'))
 		{
 			if (tmp[j] == '#')
 				i++;
@@ -108,5 +108,5 @@ int				fillit_is_valid(char *tmp)
 			return (0);
 	}
 	ft_putendl("error");
-	exit (1);
+	exit(1);
 }
