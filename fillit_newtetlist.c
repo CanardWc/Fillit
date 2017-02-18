@@ -6,11 +6,20 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 14:57:30 by fgrea             #+#    #+#             */
-/*   Updated: 2017/01/21 03:53:16 by fgrea            ###   ########.fr       */
+/*   Updated: 2017/02/18 04:39:02 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+static void		fillit_checkc(char c)
+{
+	if (c > 'Z')
+	{
+		ft_putendl("error");
+		exit(0);
+	}
+}
 
 static t_tet	*fillit_lstnew(char **tab, char *tmp)
 {
@@ -43,6 +52,7 @@ static t_tet	*fntl(t_tet *ntl, char *tmp, char c, int i)
 		i++;
 		g++;
 		c++;
+		fillit_checkc(c);
 		if (*tmp)
 		{
 			ntl->next = fillit_lstnew(fillit_createtettab(tmp, c), tmp);
